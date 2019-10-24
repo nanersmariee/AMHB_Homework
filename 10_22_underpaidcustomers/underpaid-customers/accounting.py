@@ -10,7 +10,9 @@ def reconcile_customer_orders(file):
     words = line.split("|")
 
     customer_name = words[1]
-    
+    num_melons = words[2]
+    actual_cost = words[2] * melon_cost
+    customer_paid = words[3]
 
 reconcile_customer_orders("customer-orders.txt")
 
