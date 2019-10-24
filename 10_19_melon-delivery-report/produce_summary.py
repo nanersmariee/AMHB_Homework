@@ -1,6 +1,9 @@
 
-def get_delivery_report (file):
+def get_delivery_report (day_number,file):
     
+    print("Day", day_number)
+    print()
+
     the_file = open(file)
     for line in the_file:
         line = line.rstrip()
@@ -14,18 +17,12 @@ def get_delivery_report (file):
 
         print("Delivered {} {}s for total of ${}".format(
         count, melon, amount))
+    print()
     #the_file.close()
 
-print("Day 1")
-get_delivery_report("um-deliveries-20140519.txt")
-print()
-
-print("Day 2")
-get_delivery_report("um-deliveries-20140520.txt")
-print()
-
-print("Day 3")
-get_delivery_report("um-deliveries-20140521.txt")
+get_delivery_report(1, "um-deliveries-20140519.txt")
+get_delivery_report(2, "um-deliveries-20140520.txt")
+get_delivery_report(3, "um-deliveries-20140521.txt")
 print()
 
 # print("Day 2")
