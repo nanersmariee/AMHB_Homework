@@ -1,19 +1,22 @@
-print("Testing")
-print("Day 1")
-the_file = open("um-deliveries-20140519.txt")
-for line in the_file:
-    line = line.rstrip()
-    words = line.split('|')
 
-    #fix the indexes, all had 0 originally
-    melon = words[0]
-    count = words[1]
-    amount = words[2]
+def get_delivery_report (file):
+    print("Day 1")
+    the_file = open(file)
+    for line in the_file:
+        line = line.rstrip()
+        words = line.split('|')
+
+        #fix the indexes, all had 0 originally
+        melon = words[0]
+        count = words[1]
+        amount = words[2]
 
 
-    print("Delivered {} {}s for total of ${}".format(
+        print("Delivered {} {}s for total of ${}".format(
         count, melon, amount))
-the_file.close()
+    #the_file.close()
+
+get_delivery_report("um-deliveries-20140519.txt")
 
 
 print("Day 2")
