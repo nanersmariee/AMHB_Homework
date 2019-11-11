@@ -9,13 +9,24 @@ def reconcile_customer_orders(file):
     line = line.rstrip()
     words = line.split("|")
 
+    #get customer name
     customer_name = words[1]
-    num_melons = int(words[2])
-    expected_cost = num_melons * melon_cost
-    customer_paid = words[3]
 
-    if expected_cost != customer_paid:
-      print(customer_name, "paid", customer_paid, "expected", expected_cost)
+    #get number of melons, convert to float
+    num_melons = int(words[2])
+    
+    #calculate the expected of melons times the price per unit
+    expected_cost = num_melons * melon_cost
+    customer_paid = int(words[3])
+
+
+    #set conditionals to see who paid over or under
+    if expected_cost < customer_paid:
+      print(customer_name, "paid", customer_paid, "expected", expected_cost, "-OVERPAID")
+
+    elif expected_cost > customer_paid:
+      print(customer_name, "paid", customer_paid, "expected", expected_cost, "-UNDERPAID")
+
 
 
 reconcile_customer_orders("customer-orders.txt")
